@@ -4,9 +4,120 @@ L'École de design Nantes Atlantique · Media Design lab
 
 Ce dépôt est le point de départ du cours. Suivez les étapes **dans l'ordre**, en même temps que la classe. Cochez au fur et à mesure dans votre tête… ou sur papier.
 
+- [Séance 3 · Tickets et collaboration](#séance-3--tickets-et-collaboration)
 - [Séance 2 · Structurer et spécifier](#séance-2--structurer-et-spécifier)
 - [Séance 1 · Votre environnement et votre première page en ligne](#séance-1--votre-environnement-et-votre-première-page-en-ligne)
 - [En cas de problème](#en-cas-de-problème)
+
+---
+
+## Séance 3 · Tickets et collaboration
+
+> « Ça ne marche pas » : qu'est-ce que ça veut dire ?
+
+Jusqu'ici, chacun son site. Aujourd'hui, seize personnes travaillent sur le même : le site du festival fictif **Les Nuits du Quai**. Tout se fait sur github.com, sans codespace.
+
+| Votre groupe | Votre dépôt | Le site |
+| --- | --- | --- |
+| Groupe A | https://github.com/MediaDesignLab-EDNA/vibe-coding-groupe-a | [Voir le site du groupe A](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/MediaDesignLab-EDNA/vibe-coding-groupe-a/main/playground/blueprint.json) |
+| Groupe B | https://github.com/MediaDesignLab-EDNA/vibe-coding-groupe-b | [Voir le site du groupe B](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/MediaDesignLab-EDNA/vibe-coding-groupe-b/main/playground/blueprint.json) |
+
+**Les mots de la séance**
+
+| En français | Dans GitHub | Ce que c'est |
+| --- | --- | --- |
+| ticket | issue | un problème ou une demande, écrit pour quelqu'un qui n'était pas là |
+| jalon | milestone | un lot de tickets à finir pour une date |
+| branche | branch | une copie de travail, à côté de la version de référence (`main`) |
+| pull request | pull request | une demande de fusion : « voici ce que je propose, vérifiez-le » |
+| revue | review | la relecture d'une pull request, avant la fusion |
+| fusion | merge | la correction entre dans `main` |
+
+### 1 · Le projet commun (sur github.com)
+
+- [ ] Ouvrez le dépôt de votre groupe (tableau ci-dessus).
+- [ ] **Explorez le dépôt, en binôme et sans IA.** Notez vos réponses, on corrige ensemble :
+  1. De quelle couleur sont les liens du site ? Dans quel fichier ?
+  2. Quel est le thème parent ? Où est-ce écrit ?
+  3. Quel fichier affiche la version en bas de page ?
+  4. Quelles règles l'IA doit-elle suivre dans ce projet ?
+  5. Que veut le client, en une phrase ?
+  6. Quels types de tickets peut-on ouvrir ?
+- [ ] Dans le README du dépôt, cliquez sur **Voir le site**, sur l'ordinateur puis sur votre téléphone. Le site met une vingtaine de secondes à s'ouvrir (« Preparing WordPress »).
+
+> **WordPress Playground** : un WordPress complet qui tourne dans votre navigateur, sans serveur ni compte. Chaque ouverture du lien recrée le site à partir du dépôt : ce que vous changez dans Playground ne va pas dans le dépôt. On corrige dans le dépôt, jamais dans Playground.
+
+### 2 · Du message flou au ticket
+
+Votre numéro de binôme est votre numéro de message du client (projeté en classe).
+
+- [ ] Ouvrez **Voir le site** sur votre téléphone et sur l'ordinateur. Cherchez ce que le client veut dire, page par page.
+- [ ] Relisez le message : il dit où regarder (sur téléphone, en bas de page, avec la touche Tab…).
+- [ ] Reproduisez le bug deux fois, puis faites une capture d'écran (Mac : Cmd + Maj + 4 · PC : Windows + Maj + S).
+- [ ] Dans le dépôt : **Issues › New issue › Signaler un bug**.
+- [ ] Un titre « où + quoi », par exemple : `Programme : horaires illisibles le soir`.
+- [ ] Remplissez les six champs. « Ce qui devrait se passer » décrit ce que voit le visiteur, pas la solution, et se vérifie par oui ou non.
+- [ ] Dans la colonne de droite : **Labels** `bug`, **Milestone** « Retours du client · séance 3 », **Assignees** : un membre du binôme suivant (le binôme 8 confie au binôme 1). Puis **Create**.
+- [ ] Ouvrez le ticket que le binôme précédent vous a confié, et reproduisez le bug **sans poser de question à l'oral**. Bloqué ? Écrivez dans un commentaire du ticket ce qui manque : l'auteur complète.
+
+### 3 · Une branche pour corriger (sur github.com)
+
+- [ ] **L'essai** : ouvrez le README du dépôt, cliquez sur le crayon, puis sur **Commit changes**. GitHub refuse d'enregistrer dans `main` : c'est voulu, `main` est protégée. Annulez.
+- [ ] **Créez votre branche** : sur la page du dépôt, cliquez sur le menu `main` (au-dessus de la liste des fichiers), tapez le numéro du ticket puis deux mots, sans espace ni accent (par exemple `2-horaires-illisibles`), puis **Create branch … from main**.
+- [ ] **Vérifiez où vous êtes** : le menu doit afficher le nom de votre branche, pas `main`.
+- [ ] **Trouvez le fichier** : prédisez d'abord lequel règle votre problème (tout est dans `theme/festival-child/`), puis ouvrez-le, dans votre branche.
+- [ ] **Demandez à Copilot** : icône Copilot en haut à droite de la page du fichier, puis :
+
+  ```
+  Voici un ticket de bug :
+  [collez le texte du ticket]
+  Quelle ligne de ce fichier faut-il changer pour le corriger ?
+  Donne-moi la ligne corrigée et explique en une phrase.
+  ```
+
+  Lisez l'explication : vous devez pouvoir la redire.
+- [ ] **Modifiez avec le crayon** (votre branche affichée dans le menu, pas `main`) : remplacez la ligne par celle de Copilot.
+- [ ] **Commit changes…** : un message qui dit ce qui change et le numéro du ticket, par exemple `Corrige les horaires illisibles (#2)`. Choisissez l'option qui porte le nom de **votre branche**, puis **Commit changes**.
+
+### 4 · La pull request
+
+- [ ] Juste après votre commit, un bandeau jaune propose **Compare & pull request** : cliquez sur le bouton vert. La pull request va de votre branche vers `main`.
+- [ ] Remplissez le modèle :
+  - **Ticket traité** : `Closes #2` (avec votre numéro). Gardez le mot anglais : c'est lui qui fermera le ticket à la fusion.
+  - **Ce qui change** : le fichier, et deux phrases que vous savez redire.
+  - **Comment tester** : les étapes du ticket, reprises telles quelles.
+  - **Vérifications faites** : seulement celles que vous avez vraiment faites.
+- [ ] **Reviewers** (colonne de droite) : l'auteur du ticket. Puis **Create pull request**.
+- [ ] Ouvrez le ticket : il affiche maintenant la pull request qui le corrige.
+
+### 5 · Relire avant de fusionner
+
+Vous relisez la correction **de votre propre ticket** : vous savez ce que vous attendiez.
+
+- [ ] **Quels fichiers ont changé ?** Onglet **Files changed** : combien de fichiers, tous dans le thème, une ligne que personne n'a demandée ?
+- [ ] **Le bug est-il corrigé ?** Bouton **Preview** dans la pull request (le site avec la correction, une vingtaine de secondes), puis refaites les étapes du ticket, sur téléphone.
+- [ ] **Rien d'autre n'est cassé ?** Autres pages, téléphone, clavier (Tab).
+- [ ] **Review changes** (bouton vert, en haut à droite de Files changed) :
+  - **Approve** si tout est vérifié ;
+  - **Request changes** sinon, en trois temps : « J'ai fait : … J'ai vu : … J'attendais : … ». Le correcteur redemande à Copilot sur la même branche, fait un nouveau commit : la pull request se met à jour.
+- [ ] Une fois la pull request approuvée, **le correcteur** clique sur **Merge pull request**, puis **Confirm merge**. Le ticket se ferme tout seul, le jalon avance.
+- [ ] Rouvrez **Voir le site** : la correction est en ligne.
+
+### 6 · Avant de partir
+
+- [ ] Dans votre `journal-vibe-coding`, **Add file › Create new file**, nom `seance-3.md` :
+
+  ```markdown
+  # Séance 3 · Tickets et collaboration
+
+  1. Ce que j'ai dû ajouter au message du client pour qu'on reproduise le bug :
+  2. Pendant la correction, où était ma modification ? Et maintenant ?
+  3. Comment GitHub a su qu'il fallait fermer le ticket :
+  4. Dans ma revue, ce que j'ai vérifié, et comment :
+  5. Dans une équipe web, qui écrit les tickets, qui les corrige, qui les relit ?
+  ```
+
+  Commit : « Ajoute mes notes de la séance 3 », puis ajoutez `- [Séance 3](seance-3.md)` au sommaire du README.
 
 ---
 
@@ -349,3 +460,11 @@ On ne parle pas ici de tests unitaires (du code qui vérifie du code, le travail
 | Le codespace charge encore | Suivez sur l'écran de votre binôme, puis rattrapez. |
 | « References » n'affiche pas AGENTS.md | Vérifiez que le fichier s'appelle exactement `AGENTS.md`, à la racine du projet, puis ouvrez une nouvelle conversation (+). |
 | « Copy raw file » ne colle rien | Ouvrez l'onglet **Code** de la version d'avant, sélectionnez tout le texte à la main, copiez, puis collez. |
+| Je ne trouve pas le bug | Relisez le message du client : il dit où regarder. Essayez sur téléphone **et** sur ordinateur, page par page. Toujours rien ? Appelez l'enseignant. |
+| GitHub refuse d'enregistrer et propose une nouvelle branche | Vous êtes sur `main`, qui est protégée : c'est voulu. Annulez, puis passez sur votre branche (menu au-dessus des fichiers). |
+| « Voir le site » ou « Preview » reste sur « Preparing WordPress » | Attendez 30 secondes. Sinon, rechargez la page, ou ouvrez le site sur l'ordinateur. |
+| Ce que j'ai changé dans Playground a disparu | Normal : chaque ouverture recrée le site à partir du dépôt. On corrige dans le dépôt. |
+| « Review required » ou « Merging is blocked » | La pull request attend la relecture de l'auteur du ticket. |
+| Je ne peux pas approuver | On n'approuve pas sa propre pull request : c'est l'auteur du ticket qui approuve. |
+| Le ticket ne s'est pas fermé à la fusion | Vérifiez que la pull request dit `Closes #numéro` (le mot anglais). Sinon, fermez le ticket à la main. |
+| « This branch has conflicts » | Appelez l'enseignant. |
