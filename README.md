@@ -98,9 +98,9 @@ Vous relisez la correction **de votre propre ticket** : vous savez ce que vous a
 - [ ] **Le bug est-il corrigé ?** Bouton **Preview** dans la pull request (le site avec la correction, une vingtaine de secondes), puis refaites les étapes du ticket, sur téléphone.
 - [ ] **Rien d'autre n'est cassé ?** Autres pages, téléphone, clavier (Tab).
 - [ ] **Review changes** (bouton vert, en haut à droite de Files changed) :
-  - **Approve** si tout est vérifié ;
+  - **Approve** si tout est vérifié : cochez bien **Approve** (pas « Comment »), puis **Submit review**. Un « Comment » ne débloque pas la fusion ;
   - **Request changes** sinon, en trois temps : « J'ai fait : … J'ai vu : … J'attendais : … ». Le correcteur redemande à Copilot sur la même branche, fait un nouveau commit : la pull request se met à jour.
-- [ ] Une fois la pull request approuvée, **le correcteur** clique sur **Merge pull request**, puis **Confirm merge**. Le ticket se ferme tout seul, le jalon avance.
+- [ ] Une fois la pull request approuvée, **le correcteur** descend tout en bas de l'onglet **Conversation** de la pull request, clique sur **Merge pull request**, puis **Confirm merge**. Le ticket se ferme tout seul, le jalon avance.
 - [ ] Rouvrez **Voir le site** : la correction est en ligne.
 
 ### 6 · Avant de partir
@@ -465,6 +465,7 @@ On ne parle pas ici de tests unitaires (du code qui vérifie du code, le travail
 | « Voir le site » ou « Preview » reste sur « Preparing WordPress » | Attendez 30 secondes. Sinon, rechargez la page, ou ouvrez le site sur l'ordinateur. |
 | Ce que j'ai changé dans Playground a disparu | Normal : chaque ouverture recrée le site à partir du dépôt. On corrige dans le dépôt. |
 | « Review required » ou « Merging is blocked » | La pull request attend la relecture de l'auteur du ticket. |
+| Pas de bouton « Merge pull request » | Il manque un **Approve** de l'auteur du ticket (un « Comment » ne compte pas). Le bouton est tout en bas de l'onglet **Conversation**. |
 | Je ne peux pas approuver | On n'approuve pas sa propre pull request : c'est l'auteur du ticket qui approuve. |
 | Le ticket ne s'est pas fermé à la fusion | Vérifiez que la pull request dit `Closes #numéro` (le mot anglais). Sinon, fermez le ticket à la main. |
 | « This branch has conflicts » | Appelez l'enseignant. |
